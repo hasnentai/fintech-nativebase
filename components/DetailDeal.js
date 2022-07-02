@@ -12,6 +12,7 @@ import {
   Button,
   Divider,
 } from "native-base";
+import AppBar from "./AppBar";
 
 import { NavBar } from "./NavBar";
 
@@ -19,15 +20,15 @@ const DetailsDeal = () => {
   let { colorMode } = useColorMode();
   return (
     <ScrollView _contentContainerStyle={{}}>
-      <NavBar />
+      <AppBar />
       <Box
         bg={colorMode === "light" ? "coolGray.100" : "coolGray.900"}
         w="100%"
         justifyContent="center"
         alignItems={"center"}
       >
-        <Container w="100%" p={5}>
-          <HStack w="100%">
+        <Container minW={{ md: "80%", base: "100%" }} p={5}>
+          <HStack space={2} w="100%">
             <Box flex={1} w="full">
               <VStack>
                 <HStack alignItems={"center"} m={3}>
@@ -102,7 +103,12 @@ const DetailsDeal = () => {
                 </Box>
               </VStack>
             </Box>
-            <Box flex={1} w="full" p={3}>
+            <Box
+              flex={1}
+              w="full"
+              p={3}
+              display={{ md: "block", base: "none" }}
+            >
               <Image
                 alt="img"
                 shadow={3}
@@ -115,6 +121,73 @@ const DetailsDeal = () => {
               />
             </Box>
           </HStack>
+          <Divider my={10} />
+          <Heading my={5}>Backed By</Heading>
+          <HStack space={5}>
+            <Box
+              borderWidth={1}
+              borderRadius={3}
+              py={5}
+              px={5}
+              flex={1}
+              borderColor={
+                colorMode === "light" ? "coolGray.200" : "coolGray.600"
+              }
+            >
+              <HStack>
+                <Image
+                  alt="img"
+                  shadow={3}
+                  borderColor={"coolGray.200"}
+                  borderWidth={1}
+                  borderRadius={500}
+                  h={45}
+                  w={45}
+                  src="https://www.tykeinvest.com/_next/image?url=https%3A%2F%2Ftyke-startup-bucket.s3.ap-south-1.amazonaws.com%2FUNIVEST%2520COMMUNICATION%2520TECHNOLOGIES%2520PRIVATE%2520LIMITED%2FTime%2520to%2520turn%2520Sharks%2520to%2520TagZ......%2520%252822%2529.png&w=828&q=75"
+                />
+                <VStack alignContent={"center"} justifyContent={"center"}>
+                  <Heading px={3} fontSize={"md"}>
+                    Very Good Ventures
+                  </Heading>
+                  <Heading px={3} fontSize={"sm"} fontWeight="light">
+                    Private Investing Company
+                  </Heading>
+                </VStack>
+              </HStack>
+            </Box>
+            <Box
+              borderWidth={1}
+              borderRadius={3}
+              py={5}
+              px={5}
+              flex={1}
+              borderColor={
+                colorMode === "light" ? "coolGray.200" : "coolGray.600"
+              }
+            >
+              <HStack>
+                <Image
+                  alt="img"
+                  shadow={3}
+                  borderColor={"coolGray.200"}
+                  borderWidth={1}
+                  borderRadius={500}
+                  h={45}
+                  w={45}
+                  src="https://www.tykeinvest.com/_next/image?url=https%3A%2F%2Ftyke-startup-bucket.s3.ap-south-1.amazonaws.com%2FUNIVEST%2520COMMUNICATION%2520TECHNOLOGIES%2520PRIVATE%2520LIMITED%2FTime%2520to%2520turn%2520Sharks%2520to%2520TagZ......%2520%252822%2529.png&w=828&q=75"
+                />
+                <VStack alignContent={"center"} justifyContent={"center"}>
+                  <Heading px={3} fontSize={"md"}>
+                    Very Good Ventures
+                  </Heading>
+                  <Heading px={3} fontSize={"sm"} fontWeight="light">
+                    Private Investing Company
+                  </Heading>
+                </VStack>
+              </HStack>
+            </Box>
+          </HStack>
+
           <Divider my={10} />
           <Heading my={5}>AMA Round Details</Heading>
           <HStack space={2}>
@@ -145,12 +218,56 @@ const DetailsDeal = () => {
               borderColor={
                 colorMode === "light" ? "coolGray.200" : "coolGray.600"
               }
+              display={{ md: "block", base: "none" }}
+            >
+              <VStack space={2} display={"flex"}>
+                <Heading mx={5} fontSize="md">
+                  When it will be live?
+                </Heading>
+                <Heading fontSize="sm" fontWeight={"medium"} mx={5} py={5}>
+                  AMA will be live by 6-7 PM IST
+                </Heading>
+              </VStack>
+            </Box>
+          </HStack>
+          <Divider my={10} />
+          <Heading my={5}> FAQ's</Heading>
+          <HStack space={2} display={"flex"}>
+            <Box
+              flex={1}
+              borderWidth={1}
+              borderRadius={3}
+              py={5}
+              borderColor={
+                colorMode === "light" ? "coolGray.200" : "coolGray.600"
+              }
             >
               <Heading mx={5} fontSize="md">
-                When it will be live?
+                Min and Max Investment I can do ?
               </Heading>
               <Heading fontSize="sm" fontWeight={"medium"} mx={5} py={5}>
-                AMA will be live by 6-7 PM IST
+                You can invest up to 30% max and 10% min in this project,you can
+                also use UPI,Card payments to invest in this project.Also
+                investing higher and spending more time in this project will
+                help you to get more return.
+              </Heading>
+            </Box>
+            <Box
+              flex={1}
+              borderWidth={1}
+              py={5}
+              borderRadius={3}
+              borderColor={
+                colorMode === "light" ? "coolGray.200" : "coolGray.600"
+              }
+            >
+              <Heading mx={5} fontSize="md">
+                Who is the founder of this company
+              </Heading>
+              <Heading fontSize="sm" fontWeight={"medium"} mx={5} py={5}>
+                Mark Bruno is founder of this company. He is x-google and
+                x-twitter Dev-Rel employee who played and important role to make
+                an amazing projects
               </Heading>
             </Box>
           </HStack>
