@@ -12,6 +12,7 @@ import {
   Button,
   Divider,
 } from "native-base";
+import AppBar from "./AppBar";
 
 import { NavBar } from "./NavBar";
 
@@ -19,15 +20,15 @@ const DetailsDeal = () => {
   let { colorMode } = useColorMode();
   return (
     <ScrollView _contentContainerStyle={{}}>
-      <NavBar />
+      <AppBar />
       <Box
         bg={colorMode === "light" ? "coolGray.100" : "coolGray.900"}
         w="100%"
         justifyContent="center"
         alignItems={"center"}
       >
-        <Container w="100%" p={5}>
-          <HStack w="100%">
+        <Container minW={{ md: "80%", base: "100%" }} p={5}>
+          <HStack space={2} w="100%">
             <Box flex={1} w="full">
               <VStack>
                 <HStack alignItems={"center"} m={3}>
@@ -102,7 +103,12 @@ const DetailsDeal = () => {
                 </Box>
               </VStack>
             </Box>
-            <Box flex={1} w="full" p={3}>
+            <Box
+              flex={1}
+              w="full"
+              p={3}
+              display={{ md: "block", base: "none" }}
+            >
               <Image
                 alt="img"
                 shadow={3}
@@ -212,13 +218,16 @@ const DetailsDeal = () => {
               borderColor={
                 colorMode === "light" ? "coolGray.200" : "coolGray.600"
               }
+              display={{ md: "block", base: "none" }}
             >
-              <Heading mx={5} fontSize="md">
-                When it will be live?
-              </Heading>
-              <Heading fontSize="sm" fontWeight={"medium"} mx={5} py={5}>
-                AMA will be live by 6-7 PM IST
-              </Heading>
+              <VStack space={2} display={"flex"}>
+                <Heading mx={5} fontSize="md">
+                  When it will be live?
+                </Heading>
+                <Heading fontSize="sm" fontWeight={"medium"} mx={5} py={5}>
+                  AMA will be live by 6-7 PM IST
+                </Heading>
+              </VStack>
             </Box>
           </HStack>
           <Divider my={10} />
