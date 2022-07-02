@@ -84,7 +84,7 @@ function App() {
           <Stack.Navigator>
             <Stack.Screen
               name="Home"
-              component={LandingPage}
+              component={Deals}
               options={{ headerShown: false }}
             />
           </Stack.Navigator>

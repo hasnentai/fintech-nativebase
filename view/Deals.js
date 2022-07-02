@@ -22,9 +22,18 @@ import { Ionicons, FontAwesome } from "@expo/vector-icons";
 import { NavBar } from "../components/NavBar";
 import { SafeAreaView } from "react-native-safe-area-context";
 import AppBar from "../components/AppBar";
+import { Platform } from "react-native";
+import { useEffect, useState } from "react";
+import { getAllCards } from "../api/getCardsInfo";
 const Deals = () => {
   let { colorMode } = useColorMode();
   let card = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  const [cards,setCards] = useState([])
+
+  useEffect(async ()=>{
+    let x= await getAllCards();
+    console.log(x)
+  },[])
   console.log(colorMode);
   return (
     <Box
