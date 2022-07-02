@@ -8,6 +8,7 @@ export function NavBar() {
   let menuList = ["Home", "About Us", "Contact", "Hire Me"];
   return (
     <Box
+      safeAreaTop
       width={"100vw"}
       bg={colorMode === "light" ? "primary.300" : "blueGray.900"}
       py={5}
