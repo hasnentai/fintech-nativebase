@@ -1,4 +1,12 @@
-import React from "react";
+import React, { useState } from 'react';
+import { View } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import LoginScreen from './screens/Login';
+import HomeScreen from './screens/Home';
+import SignUpScreen from './screens/SignUp';
+import firebase from 'firebase/app';
+import 'firebase/auth';
 import {
   Text,
   Link,
@@ -11,75 +19,74 @@ import {
   extendTheme,
   VStack,
   Box,
-} from "native-base";
-import NativeBaseIcon from "./components/NativeBaseIcon";
-import { Platform } from "react-native";
+} from 'native-base';
 
+import nativeBaseHackTheme from './theme/NativeBaseHackTheme';
+const Stack = createNativeStackNavigator();
 // Define the config
 const config = {
   useSystemColorMode: false,
-  initialColorMode: "dark",
+  initialColorMode: 'dark',
 };
 
 // extend the theme
 export const theme = extendTheme({ config });
 
-export default function App() {
+function App() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  const firebaseConfig = {
+    apiKey: 'AIzaSyAYL85a8H6c-_9fU4OtDE6LLTkVOJJIqAg',
+    authDomain: 'native-base-hack.firebaseapp.com',
+    projectId: 'native-base-hack',
+    storageBucket: 'native-base-hack.appspot.com',
+    messagingSenderId: '600550657392',
+    appId: '1:600550657392:web:b4d14f69840385f6d613b5',
+  };
+
+  //Checking if firebase has been initialized
+  if (!firebase.apps.length) {
+    firebase.initializeApp(firebaseConfig);
+  } else {
+    firebase.app();
+  }
+
+  firebase.auth().onAuthStateChanged((user) => {
+    if (user != null) {
+      setIsLoggedIn(true);
+    } else {
+      setIsLoggedIn(false);
+    }
+  });
+
   return (
-    <NativeBaseProvider>
-      <Center
-        _dark={{ bg: "blueGray.900" }}
-        _light={{ bg: "blueGray.50" }}
-        px={4}
-        flex={1}
-      >
-        <VStack space={5} alignItems="center">
-          <NativeBaseIcon />
-          <Heading size="lg">Welcome to NativeBase</Heading>
-          <HStack space={2} alignItems="center">
-            <Text>Edit</Text>
-            <Box
-              _web={{
-                _text: {
-                  fontFamily: "monospace",
-                  fontSize: "sm",
-                },
-              }}
-              px={2}
-              py={1}
-              _dark={{ bg: "blueGray.800" }}
-              _light={{ bg: "blueGray.200" }}
-            >
-              App.js
-            </Box>
-            <Text>and save to reload.</Text>
-          </HStack>
-          <Link href="https://docs.nativebase.io" isExternal>
-            <Text color="primary.500" underline fontSize={"xl"}>
-              Learn NativeBase
-            </Text>
-          </Link>
-          <ToggleDarkMode />
-        </VStack>
-      </Center>
+    <NativeBaseProvider theme={nativeBaseHackTheme}>
+      <NavigationContainer>
+        {isLoggedIn ? (
+          <Stack.Navigator>
+            <Stack.Screen
+              name="Home"
+              component={HomeScreen}
+              options={{ headerShown: false }}
+            />
+          </Stack.Navigator>
+        ) : (
+          <Stack.Navigator>
+            <Stack.Screen
+              name="Login"
+              component={LoginScreen}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="Sign Up"
+              component={SignUpScreen}
+              options={{ headerShown: false }}
+            />
+          </Stack.Navigator>
+        )}
+      </NavigationContainer>
     </NativeBaseProvider>
   );
 }
 
-// Color Switch Component
-function ToggleDarkMode() {
-  const { colorMode, toggleColorMode } = useColorMode();
-  return (
-    <HStack space={2} alignItems="center">
-      <Text>Dark</Text>
-      <Switch
-        isChecked={colorMode === "light"}
-        onToggle={toggleColorMode}
-        aria-label={
-          colorMode === "light" ? "switch to dark mode" : "switch to light mode"
-        }
-      />
-      <Text>Light</Text>
-    </HStack>
-  );
-}
+export default App;
