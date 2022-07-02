@@ -12,11 +12,14 @@ import {
   Button,
   Divider,
 } from "native-base";
+import { useEffect, useState } from "react";
+import { getAllCards } from "../api/getCardsInfo";
 import AppBar from "./AppBar";
 
 import { NavBar } from "./NavBar";
 
 const DetailsDeal = () => {
+
   let { colorMode } = useColorMode();
   return (
     <ScrollView _contentContainerStyle={{}}>
