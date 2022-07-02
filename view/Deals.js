@@ -32,7 +32,7 @@ const Deals = () => {
       width={"100%"}
       bg={colorMode === "light" ? "primary.300" : "blueGray.900"}
     >
-      <AppBar />
+      {Platform.OS === "web" ? <NavBar /> : <AppBar />}
       <ScrollView _contentContainerStyle={{}}>
         {/* <NavBar /> */}
         <Box

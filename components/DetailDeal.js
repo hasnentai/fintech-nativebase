@@ -20,7 +20,7 @@ const DetailsDeal = () => {
   let { colorMode } = useColorMode();
   return (
     <ScrollView _contentContainerStyle={{}}>
-      <AppBar />
+      {Platform.OS === "web" ? <NavBar /> : <AppBar />}
       <Box
         bg={colorMode === "light" ? "coolGray.100" : "coolGray.900"}
         w="100%"

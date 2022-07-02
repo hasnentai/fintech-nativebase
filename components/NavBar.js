@@ -36,8 +36,8 @@ export function NavBar() {
 
   function navBarBrand() {
     return (
-      <Text color={"white"} fontSize="lg" fontWeight="bold">
-        Logo Of App
+      <Text color={"white"} fontSize="4xl" fontWeight="bold">
+        Investify
       </Text>
     );
   }
