@@ -78,11 +78,11 @@ function App() {
               options={{ headerShown: false }}
             />
           </Stack.Navigator>
-        ) : isLoggedIn ? (
+        ) : true ? (
           <Stack.Navigator>
             <Stack.Screen
               name="Home"
-              component={HomeScreen}
+              component={Deals}
               options={{ headerShown: false }}
             />
           </Stack.Navigator>

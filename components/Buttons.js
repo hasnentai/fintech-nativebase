@@ -44,13 +44,13 @@ const NativeBaseHackButtonGroup = ({ label }) => {
       }}
       size="lg"
     >
-      <Button minW={'140'} variant={'outline'}>
+      <Button minW={'100'} variant={'outline'}>
         {label[0]}
       </Button>
-      <Button minW={'140'} variant={false ? 'outline' : 'solid'}>
+      <Button minW={'100'} variant={false ? 'outline' : 'solid'}>
         {label[1]}
       </Button>
-      <Button minW={'140'} variant={'outline'}>
+      <Button minW={'100'} variant={'outline'}>
         {label[1]}
       </Button>
     </Button.Group>
