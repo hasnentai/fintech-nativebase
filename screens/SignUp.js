@@ -72,13 +72,16 @@ import {
   Button,
   HStack,
   Center,
+  Icon,
   NativeBaseProvider,
+  Divider,
 } from 'native-base';
+import { AntDesign } from '@expo/vector-icons';
 
 const SignUp = () => {
   return (
-    <Center w="100%">
-      <Box safeArea p="2" py="8" w="90%" maxW="290">
+    <Center w="100%" flex={1}>
+      <Box safeArea p="2" py="8" w="95%">
         <Heading
           size="lg"
           fontWeight="600"
@@ -101,12 +104,38 @@ const SignUp = () => {
           Sign in to continue!
         </Heading>
 
-        <VStack space={3} mt="5">
+        <VStack space={2} mt="5">
+          <Button
+            colorScheme="indigo"
+            leftIcon={<Icon as={AntDesign} name="google" size="sm" />}
+          >
+            Sign up with Google
+          </Button>
+          <Box
+            marginTop={'10px'}
+            marginBottom={'10px'}
+            alignItems={'center'}
+            justifyContent={'center'}
+            style={{ position: 'relative' }}
+          >
+            <Divider />
+            <Heading
+              style={{ position: 'absolute' }}
+              mt="1"
+              _dark={{
+                color: 'warmGray.200',
+              }}
+              color="coolGray.600"
+              fontWeight="medium"
+              size="xs"
+            >
+              Sign in to continue!
+            </Heading>
+          </Box>
           <FormControl>
-            <FormControl.Label>Email ID</FormControl.Label>
-            <HStack>
+            <HStack justifyContent={'space-between'}>
               <Input
-                width={'50%'}
+                width={'48%'}
                 shadow={2}
                 _light={{
                   bg: 'coolGray.100',
@@ -117,7 +146,7 @@ const SignUp = () => {
                 placeholder="First name"
               />
               <Input
-                width={'50%'}
+                width={'48%'}
                 shadow={2}
                 _light={{
                   bg: 'coolGray.100',
@@ -130,9 +159,20 @@ const SignUp = () => {
             </HStack>
           </FormControl>
           <FormControl>
-            <FormControl.Label>Password</FormControl.Label>
+            <Input
+              marginTop={3}
+              width={'100%'}
+              shadow={2}
+              _light={{
+                bg: 'coolGray.100',
+              }}
+              _dark={{
+                bg: 'coolGray.800',
+              }}
+              placeholder="Email"
+            />
 
-            <Link
+            {/* <Link
               _text={{
                 fontSize: 'xs',
                 fontWeight: '500',
@@ -142,7 +182,7 @@ const SignUp = () => {
               mt="1"
             >
               Forget Password?
-            </Link>
+            </Link> */}
           </FormControl>
           <Button mt="2" colorScheme="indigo">
             Sign in
