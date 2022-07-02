@@ -83,7 +83,7 @@ function App() {
           <Stack.Navigator>
             <Stack.Screen
               name="Home"
-              component={Deals}
+              component={DetailsDeal}
               options={{ headerShown: false }}
             />
           </Stack.Navigator>
