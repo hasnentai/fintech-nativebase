@@ -64,7 +64,7 @@ function App() {
   return (
     <NativeBaseProvider theme={nativeBaseHackTheme}>
       <NavigationContainer>
-        <NavBar />
+        {/* <NavBar /> */}
         {true ? (
           <Stack.Navigator>
             <Stack.Screen

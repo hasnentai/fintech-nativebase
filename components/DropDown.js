@@ -5,9 +5,10 @@ const NativeBaseHackSelect = ({ selectedValue, listItems, onValueChange }) => {
   let [service, setService] = React.useState("");
   return (
     <Center>
-      <Box>
+      <Box w={"90%"}>
         <Select
           selectedValue={service}
+          p="10px"
           accessibilityLabel="Choose Service"
           placeholder="Choose Service"
           _selectedItem={{

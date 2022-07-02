@@ -60,7 +60,7 @@
 //     </View>
 // }
 
-import * as React from 'react';
+import * as React from "react";
 import {
   Box,
   Text,
@@ -75,8 +75,8 @@ import {
   Icon,
   NativeBaseProvider,
   Divider,
-} from 'native-base';
-import { AntDesign } from '@expo/vector-icons';
+} from "native-base";
+import { AntDesign } from "@expo/vector-icons";
 
 const SignUp = () => {
   return (
@@ -87,7 +87,7 @@ const SignUp = () => {
           fontWeight="600"
           color="coolGray.800"
           _dark={{
-            color: 'warmGray.50',
+            color: "warmGray.50",
           }}
         >
           Welcome
@@ -95,7 +95,7 @@ const SignUp = () => {
         <Heading
           mt="1"
           _dark={{
-            color: 'warmGray.200',
+            color: "warmGray.200",
           }}
           color="coolGray.600"
           fontWeight="medium"
@@ -112,18 +112,18 @@ const SignUp = () => {
             Sign up with Google
           </Button>
           <Box
-            marginTop={'10px'}
-            marginBottom={'10px'}
-            alignItems={'center'}
-            justifyContent={'center'}
-            style={{ position: 'relative' }}
+            marginTop={"10px"}
+            marginBottom={"10px"}
+            alignItems={"center"}
+            justifyContent={"center"}
+            style={{ position: "relative" }}
           >
             <Divider />
             <Heading
-              style={{ position: 'absolute' }}
+              style={{ position: "absolute" }}
               mt="1"
               _dark={{
-                color: 'warmGray.200',
+                color: "warmGray.200",
               }}
               color="coolGray.600"
               fontWeight="medium"
@@ -133,26 +133,26 @@ const SignUp = () => {
             </Heading>
           </Box>
           <FormControl>
-            <HStack justifyContent={'space-between'}>
+            <HStack justifyContent={"space-between"}>
               <Input
-                width={'48%'}
+                width={"48%"}
                 shadow={2}
                 _light={{
-                  bg: 'coolGray.100',
+                  bg: "coolGray.100",
                 }}
                 _dark={{
-                  bg: 'coolGray.800',
+                  bg: "coolGray.800",
                 }}
                 placeholder="First name"
               />
               <Input
-                width={'48%'}
+                width={"48%"}
                 shadow={2}
                 _light={{
-                  bg: 'coolGray.100',
+                  bg: "coolGray.100",
                 }}
                 _dark={{
-                  bg: 'coolGray.800',
+                  bg: "coolGray.800",
                 }}
                 placeholder="Second name"
               />
@@ -161,13 +161,13 @@ const SignUp = () => {
           <FormControl>
             <Input
               marginTop={3}
-              width={'100%'}
+              width={"100%"}
               shadow={2}
               _light={{
-                bg: 'coolGray.100',
+                bg: "coolGray.100",
               }}
               _dark={{
-                bg: 'coolGray.800',
+                bg: "coolGray.800",
               }}
               placeholder="Email"
             />
@@ -192,16 +192,16 @@ const SignUp = () => {
               fontSize="sm"
               color="coolGray.600"
               _dark={{
-                color: 'warmGray.200',
+                color: "warmGray.200",
               }}
             >
-              I'm a new user.{' '}
+              I'm a new user.{" "}
             </Text>
             <Link
               _text={{
-                color: 'indigo.500',
-                fontWeight: 'medium',
-                fontSize: 'sm',
+                color: "indigo.500",
+                fontWeight: "medium",
+                fontSize: "sm",
               }}
               href="#"
             >
