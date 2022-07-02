@@ -13,8 +13,8 @@ const Card = () => {
   return (
     <Box
       bg={colorMode === "light" ? "white" : "coolGray.900"}
-      w="400"
-      minW="400px"
+      w="100%"
+      maxW={400}
       shadow={2}
       borderRadius={5}
       borderWidth="1"
@@ -25,7 +25,7 @@ const Card = () => {
         alt="img"
         borderTopRadius={5}
         h={"300px"}
-        w={"full"}
+        w={"100%"}
         borderBottomWidth={1}
         borderColor={"coolGray.200"}
         src="https://www.tykeinvest.com/_next/image?url=https%3A%2F%2Ftyke-startup-bucket.s3.ap-south-1.amazonaws.com%2FUNIVEST%2520COMMUNICATION%2520TECHNOLOGIES%2520PRIVATE%2520LIMITED%2FTime%2520to%2520turn%2520Sharks%2520to%2520TagZ......%2520%252822%2529.png&w=828&q=75"

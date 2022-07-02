@@ -25,8 +25,6 @@ const NativeBaseHackButton = ({
         leftIcon={leftIcon}
         m={1}
         width={width}
-        minW={"120px"}
-        maxW={"200px"}
         bg={bg}
       >
         {label}
