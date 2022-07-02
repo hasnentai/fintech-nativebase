@@ -1,64 +1,5 @@
-// import React, { useState } from 'react'
-// import { Text, View, StyleSheet } from "react-native"
-// import TextBox from "../components/TextBox"
-// import Btn from "../components/Btn"
-// import firebase from 'firebase/app';
-// import "firebase/auth";
-
-// const styles = StyleSheet.create({
-//     view: {
-//         flex: 1,
-//         width: "100%",
-//         justifyContent: "center",
-//         alignItems: "center"
-//     }
-// })
-
-// export default function SignUpScreen({ navigation }) {
-
-//     const [values, setValues] = useState({
-//         email: "",
-//         pwd: "",
-//         pwd2: ""
-//     })
-
-//     function handleChange(text, eventName) {
-//         setValues(prev => {
-//             return {
-//                 ...prev,
-//                 [eventName]: text
-//             }
-//         })
-//     }
-
-//     function SignUp() {
-
-//         const { email, pwd, pwd2 } = values
-
-//         if (pwd == pwd2) {
-//             firebase.auth().createUserWithEmailAndPassword(email, pwd)
-//                 .then(() => {
-//                 })
-//                 .catch((error) => {
-//                     alert(error.message)
-//                     // ..
-//                 });
-//         } else {
-//             alert("Passwords are different!")
-//         }
-//     }
-
-//     return <View style={styles.view}>
-//         <Text style={{ fontSize: 34, fontWeight: "800", marginBottom: 20 }}>Sign Up</Text>
-//         <TextBox placeholder="Email Address" onChangeText={text => handleChange(text, "email")} />
-//         <TextBox placeholder="Password" secureTextEntry={true}  onChangeText={text => handleChange(text, "pwd")}/>
-//         <TextBox placeholder="Confirme Password" secureTextEntry={true}  onChangeText={text => handleChange(text, "pwd2")}/>
-//         <View style={{ flexDirection: "row", justifyContent: "space-between", alignItems: "center", width: "92%", }}>
-//             <Btn onClick={() => SignUp()} title="Sign Up" style={{ width: "48%" }} />
-//             <Btn onClick={() => navigation.replace("Login")} title="Login" style={{ width: "48%", backgroundColor: "#344869" }} />
-//         </View>
-//     </View>
-// }
+import firebase from "firebase/app";
+import "firebase/auth";
 
 import * as React from "react";
 import {
@@ -75,13 +16,47 @@ import {
   Icon,
   NativeBaseProvider,
   Divider,
+  useColorMode,
 } from "native-base";
 import { AntDesign } from "@expo/vector-icons";
+import { NativeBaseHackButton } from "../components/Buttons";
 
-const SignUp = () => {
+const SignUp = ({ navigation }) => {
+  let { colorMode } = useColorMode();
+  const [formState, setFormState] = React.useState({
+    FirstName: "",
+    SecondName: "",
+    Email: "",
+    password: "",
+    error: null,
+  });
+
+  const SignUpFunction = () => {
+    if (formState.Email && formState.password) {
+      firebase
+        .auth()
+        .createUserWithEmailAndPassword(formState.Email, formState.password)
+        .then(() => {
+          console.log("usercreated");
+          navigation.replace("Home");
+        })
+        .catch((error) => {
+          alert(error.message);
+
+          // ..
+        });
+    } else {
+      alert("Please enter email and passwrd!");
+    }
+  };
+  console.log(formState);
   return (
-    <Center w="100%" flex={1}>
-      <Box safeArea p="2" py="8" w="95%">
+    <Center
+      w="100%"
+      flex={1}
+      bg={colorMode === "light" ? "coolGray.100" : "coolGray.900"}
+    >
+      <Box safeArea p="2" py="8" w="95%" maxW={500}>
         <Heading
           size="lg"
           fontWeight="600"
@@ -90,19 +65,21 @@ const SignUp = () => {
             color: "warmGray.50",
           }}
         >
-          Welcome
+          Get Started
         </Heading>
-        <Heading
-          mt="1"
-          _dark={{
-            color: "warmGray.200",
-          }}
-          color="coolGray.600"
-          fontWeight="medium"
-          size="xs"
-        >
-          Sign in to continue!
-        </Heading>
+        <Box style={{ backgroundColor: "red.100" }}>
+          <Heading
+            mt="1"
+            _dark={{
+              color: "warmGray.200",
+            }}
+            color="coolGray.600"
+            fontWeight="medium"
+            size="xs"
+          >
+            Or Sign Up to continue!
+          </Heading>
+        </Box>
 
         <VStack space={2} mt="5">
           <Button
@@ -112,15 +89,20 @@ const SignUp = () => {
             Sign up with Google
           </Button>
           <Box
-            marginTop={"10px"}
-            marginBottom={"10px"}
+            marginTop={"20px"}
+            marginBottom={"20px"}
             alignItems={"center"}
             justifyContent={"center"}
             style={{ position: "relative" }}
           >
             <Divider />
             <Heading
-              style={{ position: "absolute" }}
+              bg={colorMode === "light" ? "coolGray.100" : "coolGray.900"}
+              style={{
+                position: "absolute",
+                paddingLeft: 10,
+                paddingRight: 10,
+              }}
               mt="1"
               _dark={{
                 color: "warmGray.200",
@@ -129,32 +111,30 @@ const SignUp = () => {
               fontWeight="medium"
               size="xs"
             >
-              Sign in to continue!
+              Sign in to continue
             </Heading>
           </Box>
           <FormControl>
             <HStack justifyContent={"space-between"}>
               <Input
                 width={"48%"}
-                shadow={2}
-                _light={{
-                  bg: "coolGray.100",
-                }}
-                _dark={{
-                  bg: "coolGray.800",
-                }}
                 placeholder="First name"
+                onChangeText={(e) =>
+                  setFormState((formState) => ({
+                    ...formState,
+                    FirstName: e,
+                  }))
+                }
               />
               <Input
                 width={"48%"}
-                shadow={2}
-                _light={{
-                  bg: "coolGray.100",
-                }}
-                _dark={{
-                  bg: "coolGray.800",
-                }}
                 placeholder="Second name"
+                onChangeText={(e) =>
+                  setFormState((formState) => ({
+                    ...formState,
+                    SecondName: e,
+                  }))
+                }
               />
             </HStack>
           </FormControl>
@@ -162,31 +142,34 @@ const SignUp = () => {
             <Input
               marginTop={3}
               width={"100%"}
-              shadow={2}
-              _light={{
-                bg: "coolGray.100",
-              }}
-              _dark={{
-                bg: "coolGray.800",
-              }}
               placeholder="Email"
+              onChangeText={(e) =>
+                setFormState((formState) => ({
+                  ...formState,
+                  Email: e,
+                }))
+              }
             />
-
-            {/* <Link
-              _text={{
-                fontSize: 'xs',
-                fontWeight: '500',
-                color: 'indigo.500',
-              }}
-              alignSelf="flex-end"
-              mt="1"
-            >
-              Forget Password?
-            </Link> */}
+            <Input
+              marginTop={3}
+              width={"100%"}
+              placeholder="Password"
+              type={"password"}
+              onChangeText={(e) =>
+                setFormState((formState) => ({
+                  ...formState,
+                  password: e,
+                }))
+              }
+            />
           </FormControl>
-          <Button mt="2" colorScheme="indigo">
-            Sign in
-          </Button>
+          <NativeBaseHackButton
+            width={"100%"}
+            label={"SignUp"}
+            onPress={SignUpFunction}
+            mt="2"
+            colorScheme="indigo"
+          ></NativeBaseHackButton>
           <HStack mt="6" justifyContent="center">
             <Text
               fontSize="sm"
@@ -195,9 +178,10 @@ const SignUp = () => {
                 color: "warmGray.200",
               }}
             >
-              I'm a new user.{" "}
+              Already have an account?
             </Text>
             <Link
+              onPress={() => navigation.replace("Login")}
               _text={{
                 color: "indigo.500",
                 fontWeight: "medium",
@@ -205,7 +189,7 @@ const SignUp = () => {
               }}
               href="#"
             >
-              Sign Up
+              Login in here
             </Link>
           </HStack>
         </VStack>

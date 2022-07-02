@@ -23,7 +23,9 @@ import {
 
 import Deals from "./view/Deals";
 import { NavBar } from "./components/NavBar";
+import Welcome from "./screens/Welcome";
 import { nativeBaseHackTheme } from "./theme/NativeBaseHackTheme";
+import DetailsDeal from "./components/DetailDeal";
 
 const Stack = createNativeStackNavigator();
 // Define the config
@@ -36,6 +38,7 @@ const config = {
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   const firebaseConfig = {
     apiKey: "AIzaSyAYL85a8H6c-_9fU4OtDE6LLTkVOJJIqAg",
@@ -55,17 +58,28 @@ function App() {
 
   firebase.auth().onAuthStateChanged((user) => {
     if (user != null) {
+      console.log("##########################");
       setIsLoggedIn(true);
+      setLoading(false);
     } else {
       setIsLoggedIn(false);
+      setLoading(false);
     }
   });
+  console.log(loading);
 
   return (
     <NativeBaseProvider theme={nativeBaseHackTheme}>
       <NavigationContainer>
-        {/* <NavBar /> */}
-        {true ? (
+        {false ? (
+          <Stack.Navigator>
+            <Stack.Screen
+              name="loading"
+              component={Welcome}
+              options={{ headerShown: false }}
+            />
+          </Stack.Navigator>
+        ) : true ? (
           <Stack.Navigator>
             <Stack.Screen
               name="Home"
