@@ -1,55 +1,176 @@
-import React, { useState } from 'react'
-import { Text, View, StyleSheet } from "react-native"
-import TextBox from "../components/TextBox"
-import Btn from "../components/Btn"
+import * as React from 'react';
+import {
+  Box,
+  Text,
+  Heading,
+  VStack,
+  FormControl,
+  Input,
+  Link,
+  Button,
+  HStack,
+  Center,
+  Icon,
+  NativeBaseProvider,
+  Divider,
+  useColorMode,
+} from 'native-base';
+import { AntDesign } from '@expo/vector-icons';
+import { NativeBaseHackButton } from '../components/Buttons';
 import firebase from 'firebase/app';
-import "firebase/auth";
+import 'firebase/auth';
 
-const styles = StyleSheet.create({
-    view: {
-        flex: 1,
-        width: "100%",
-        justifyContent: "center",
-        alignItems: "center"
-    }
-})
+const Login = ({ navigation }) => {
+  let { colorMode } = useColorMode();
+  const [formState, setFormState] = React.useState({
+    Email: '',
+    password: '',
+    error: null,
+  });
 
-export default function Loginscreen({ navigation }) {
-
-    const [values, setValues] = useState({
-        email: "",
-        pwd: ""
-    })
-
-    function handleChange(text, eventName) {
-        setValues(prev => {
-            return {
-                ...prev,
-                [eventName]: text
-            }
+  const LoginFunction = () => {
+    if (formState.Email && formState.password) {
+      firebase
+        .auth()
+        .signInWithEmailAndPassword(formState.Email, formState.password)
+        .then(() => {
+          console.log('usercreated');
+          navigation.replace('Home');
         })
+        .catch((error) => {
+          alert(error.message);
+
+          // ..
+        });
+    } else {
+      alert('Please enter email and passwrd!');
     }
+  };
+  console.log(formState);
+  return (
+    <Center
+      w="100%"
+      flex={1}
+      bg={colorMode === 'light' ? 'coolGray.100' : 'coolGray.900'}
+    >
+      <Box safeArea p="2" py="8" w="95%" maxW={500}>
+        <Heading
+          size="lg"
+          fontWeight="600"
+          color="coolGray.800"
+          _dark={{
+            color: 'warmGray.50',
+          }}
+        >
+          Login
+        </Heading>
+        <Box style={{ backgroundColor: 'red.100' }}>
+          <Heading
+            mt="1"
+            _dark={{
+              color: 'warmGray.200',
+            }}
+            color="coolGray.600"
+            fontWeight="medium"
+            size="xs"
+          >
+            Login to continue
+          </Heading>
+        </Box>
 
-    function Login() {
+        <VStack space={2} mt="5">
+          <Button
+            colorScheme="indigo"
+            leftIcon={<Icon as={AntDesign} name="google" size="sm" />}
+          >
+            Login with Google
+          </Button>
+          <Box
+            marginTop={'20px'}
+            marginBottom={'20px'}
+            alignItems={'center'}
+            justifyContent={'center'}
+            style={{ position: 'relative' }}
+          >
+            <Divider />
+            <Heading
+              bg={colorMode === 'light' ? 'coolGray.100' : 'coolGray.900'}
+              style={{
+                position: 'absolute',
+                paddingLeft: 10,
+                paddingRight: 10,
+              }}
+              mt="1"
+              _dark={{
+                color: 'warmGray.200',
+              }}
+              color="coolGray.600"
+              fontWeight="medium"
+              size="xs"
+            >
+              Or Sign in to continue
+            </Heading>
+          </Box>
 
-        const { email, pwd } = values
+          <FormControl>
+            <Input
+              width={'100%'}
+              placeholder="Email"
+              onChangeText={(e) =>
+                setFormState((formState) => ({
+                  ...formState,
+                  Email: e,
+                }))
+              }
+            />
+            <Input
+              marginTop={3}
+              width={'100%'}
+              type={'password'}
+              placeholder="Password"
+              onChangeText={(e) =>
+                setFormState((formState) => ({
+                  ...formState,
+                  password: e,
+                }))
+              }
+            />
+          </FormControl>
+          <Box style={{ marginTop: 10 }}>
+            <NativeBaseHackButton
+              width={'100%'}
+              label={'Login'}
+              onPress={LoginFunction}
+              mt="2"
+              colorScheme="indigo"
+            ></NativeBaseHackButton>
+          </Box>
+          <HStack mt="6" justifyContent="center">
+            <Text
+              fontSize="sm"
+              color="coolGray.600"
+              _dark={{
+                color: 'warmGray.200',
+              }}
+            >
+              Don't have an account?
+            </Text>
+            <Link
+              onPress={() => navigation.replace('Sign Up')}
+              _text={{
+                color: 'indigo.500',
+                fontWeight: 'medium',
+                fontSize: 'sm',
+              }}
+              href="#"
+            >
+              Sign Up
+            </Link>
+          </HStack>
+        </VStack>
+      </Box>
+    </Center>
+  );
+};
 
-        firebase.auth().signInWithEmailAndPassword(email, pwd)
-            .then(() => {
-            })
-            .catch((error) => {
-                alert(error.message)
-                // ..
-            });
-    }
-
-    return <View style={styles.view}>
-        <Text style={{ fontSize: 34, fontWeight: "800", marginBottom: 20 }}>Login</Text>
-        <TextBox placeholder="Email Address" onChangeText={text => handleChange(text, "email")} />
-        <TextBox placeholder="Password" onChangeText={text => handleChange(text, "pwd")} secureTextEntry={true} />
-        <View style={{ flexDirection: "row", justifyContent: "space-between", alignItems: "center", width: "92%", }}>
-            <Btn onClick={() => Login()} title="Login" style={{ width: "48%" }} />
-            <Btn onClick={() => navigation.navigate("Sign Up")} title="Sign Up" style={{ width: "48%", backgroundColor: "#344869" }} />
-        </View>
-    </View>
-}
+export default Login;

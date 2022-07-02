@@ -1,4 +1,4 @@
-import { Button, Box } from "native-base";
+import { Button, Box } from 'native-base';
 
 const NativeBaseHackButton = ({
   onPress,
@@ -7,9 +7,9 @@ const NativeBaseHackButton = ({
   colorScheme,
   isDisabled = false,
   isLoading = false,
-  isLoadingText = "Submitting...",
+  isLoadingText = 'Submitting...',
   leftIcon,
-  variant = "solid",
+  variant = 'solid',
   width,
   bg,
 }) => {
@@ -25,8 +25,6 @@ const NativeBaseHackButton = ({
         leftIcon={leftIcon}
         m={1}
         width={width}
-        minW={"120px"}
-        maxW={"200px"}
         bg={bg}
       >
         {label}
@@ -41,18 +39,18 @@ const NativeBaseHackButtonGroup = ({ label }) => {
       m={1}
       isAttached
       mx={{
-        base: "auto",
+        base: 'auto',
         md: 0,
       }}
       size="lg"
     >
-      <Button minW={"140"} variant={"outline"}>
+      <Button minW={'140'} variant={'outline'}>
         {label[0]}
       </Button>
-      <Button minW={"140"} variant={false ? "outline" : "solid"}>
+      <Button minW={'140'} variant={false ? 'outline' : 'solid'}>
         {label[1]}
       </Button>
-      <Button minW={"140"} variant={"outline"}>
+      <Button minW={'140'} variant={'outline'}>
         {label[1]}
       </Button>
     </Button.Group>
