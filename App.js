@@ -24,6 +24,7 @@ import {
 import Deals from "./view/Deals";
 import { NavBar } from "./components/NavBar";
 import { nativeBaseHackTheme } from "./theme/NativeBaseHackTheme";
+import DetailsDeal from "./components/DetailDeal";
 
 const Stack = createNativeStackNavigator();
 // Define the config
@@ -69,7 +70,7 @@ function App() {
           <Stack.Navigator>
             <Stack.Screen
               name="Home"
-              component={Deals}
+              component={DetailsDeal}
               options={{ headerShown: false }}
             />
           </Stack.Navigator>
