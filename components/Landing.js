@@ -27,13 +27,14 @@ const LandingPage = () => {
             <Box flexDir={"row"} minH={"800"} width={"100%"}>
               <Box flex={1} justifyContent="center">
                 <Heading
-                  fontSize={"6xl"}
+                  fontSize={"7xl"}
                   justifyContent={"center"}
                   color={"white"}
+                  fontWeight={"light"}
                 >
                   Super Charge Your Investing Skills
                 </Heading>
-                <Heading fontSize={"lg"} color={"white"}>
+                <Heading fontSize={"lg"} color={"white"} fontWeight="bolder">
                   Invest on our platform for leading company and projects.Buy
                   Stocks and invest now and get high returns
                 </Heading>
