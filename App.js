@@ -1,12 +1,12 @@
-import React, { useState } from "react";
-import { View } from "react-native";
-import { NavigationContainer } from "@react-navigation/native";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import LoginScreen from "./screens/Login";
-import HomeScreen from "./screens/Home";
-import SignUpScreen from "./screens/SignUp";
-import firebase from "firebase/app";
-import "firebase/auth";
+import React, { useState } from 'react';
+import { View } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import LoginScreen from './screens/Login';
+import HomeScreen from './screens/Home';
+import SignUpScreen from './screens/SignUp';
+import firebase from 'firebase/app';
+import 'firebase/auth';
 import {
   Text,
   Link,
@@ -19,19 +19,19 @@ import {
   extendTheme,
   VStack,
   Box,
-} from "native-base";
+} from 'native-base';
 
-import Deals from "./view/Deals";
-import { NavBar } from "./components/NavBar";
-import Welcome from "./screens/Welcome";
-import { nativeBaseHackTheme } from "./theme/NativeBaseHackTheme";
-import DetailsDeal from "./components/DetailDeal";
+import Deals from './view/Deals';
+import { NavBar } from './components/NavBar';
+import Welcome from './screens/Welcome';
+import { nativeBaseHackTheme } from './theme/NativeBaseHackTheme';
+import DetailsDeal from './components/DetailDeal';
 
 const Stack = createNativeStackNavigator();
 // Define the config
 const config = {
   useSystemColorMode: false,
-  initialColorMode: "dark",
+  initialColorMode: 'dark',
 };
 
 // extend the theme
@@ -41,12 +41,12 @@ function App() {
   const [loading, setLoading] = useState(true);
 
   const firebaseConfig = {
-    apiKey: "AIzaSyAYL85a8H6c-_9fU4OtDE6LLTkVOJJIqAg",
-    authDomain: "native-base-hack.firebaseapp.com",
-    projectId: "native-base-hack",
-    storageBucket: "native-base-hack.appspot.com",
-    messagingSenderId: "600550657392",
-    appId: "1:600550657392:web:b4d14f69840385f6d613b5",
+    apiKey: 'AIzaSyAYL85a8H6c-_9fU4OtDE6LLTkVOJJIqAg',
+    authDomain: 'native-base-hack.firebaseapp.com',
+    projectId: 'native-base-hack',
+    storageBucket: 'native-base-hack.appspot.com',
+    messagingSenderId: '600550657392',
+    appId: '1:600550657392:web:b4d14f69840385f6d613b5',
   };
 
   //Checking if firebase has been initialized
@@ -58,7 +58,7 @@ function App() {
 
   firebase.auth().onAuthStateChanged((user) => {
     if (user != null) {
-      console.log("##########################");
+      console.log('##########################');
       setIsLoggedIn(true);
       setLoading(false);
     } else {
@@ -83,6 +83,11 @@ function App() {
           <Stack.Navigator>
             <Stack.Screen
               name="Home"
+              component={Deals}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="DetailsDeal"
               component={DetailsDeal}
               options={{ headerShown: false }}
             />
