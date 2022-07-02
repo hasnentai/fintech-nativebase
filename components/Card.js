@@ -24,7 +24,7 @@ const Card = () => {
       <Image
         alt="img"
         borderTopRadius={5}
-        h={"300px"}
+        h={"250px"}
         w={"100%"}
         borderBottomWidth={1}
         borderColor={"coolGray.200"}

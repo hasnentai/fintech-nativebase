@@ -26,6 +26,7 @@ import { NavBar } from "./components/NavBar";
 import Welcome from "./screens/Welcome";
 import { nativeBaseHackTheme } from "./theme/NativeBaseHackTheme";
 import DetailsDeal from "./components/DetailDeal";
+import LandingPage from "./components/Landing";
 
 const Stack = createNativeStackNavigator();
 // Define the config
@@ -83,7 +84,7 @@ function App() {
           <Stack.Navigator>
             <Stack.Screen
               name="Home"
-              component={DetailsDeal}
+              component={LandingPage}
               options={{ headerShown: false }}
             />
           </Stack.Navigator>
