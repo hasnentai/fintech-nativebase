@@ -1,5 +1,10 @@
 import { Button, Box } from "native-base";
 
+/**
+ *
+ * @param {*} param0
+ * @returns A new Native Base Button which will be used globally with the same theme.
+ */
 const NativeBaseHackButton = ({
   onPress,
   label,
@@ -33,6 +38,11 @@ const NativeBaseHackButton = ({
   );
 };
 
+/**
+ *
+ * @param {*} param0
+ * @returns A Nativebase Button group
+ */
 const NativeBaseHackButtonGroup = ({ label }) => {
   return (
     <Button.Group
@@ -44,6 +54,20 @@ const NativeBaseHackButtonGroup = ({ label }) => {
       }}
       size="lg"
     >
+      <ButtonRow />
+    </Button.Group>
+  );
+};
+
+export { NativeBaseHackButton, NativeBaseHackButtonGroup };
+/**
+ *
+ * @param {*} param0
+ * @returns Creates Three Button in a row
+ */
+function ButtonRow({}) {
+  return (
+    <>
       <Button minW={"100"} variant={"outline"}>
         {label[0]}
       </Button>
@@ -53,8 +77,6 @@ const NativeBaseHackButtonGroup = ({ label }) => {
       <Button minW={"100"} variant={"outline"}>
         {label[1]}
       </Button>
-    </Button.Group>
+    </>
   );
-};
-
-export { NativeBaseHackButton, NativeBaseHackButtonGroup };
+}

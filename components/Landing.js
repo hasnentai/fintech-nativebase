@@ -39,7 +39,7 @@ const LandingPage = () => {
                   Stocks and invest now and get high returns
                 </Heading>
                 <Box
-                  pt="30"
+                  pt={2}
                   justifyContent={"flex-start"}
                   alignItems="flex-start"
                 >

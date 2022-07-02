@@ -31,73 +31,12 @@ const DetailsDeal = () => {
           <HStack space={2} w="100%">
             <Box flex={1} w="full">
               <VStack>
-                <HStack alignItems={"center"} m={3}>
-                  <Image
-                    alt="img"
-                    shadow={3}
-                    borderColor={"coolGray.200"}
-                    borderWidth={1}
-                    borderRadius={200}
-                    h="70px"
-                    w="70px"
-                    src="https://www.tykeinvest.com/_next/image?url=https%3A%2F%2Ftyke-startup-bucket.s3.ap-south-1.amazonaws.com%2FUNIVEST%2520COMMUNICATION%2520TECHNOLOGIES%2520PRIVATE%2520LIMITED%2FTime%2520to%2520turn%2520Sharks%2520to%2520TagZ......%2520%252822%2529.png&w=828&q=75"
-                  />
-                  <Heading m={2}>UniVest</Heading>
-                </HStack>
-                <HStack m={3} space={5} mx={5}>
-                  <Box px={2} py={1} bg={"success.600"} borderRadius={200}>
-                    <Heading color={"white"} fontSize={"sm"}>
-                      E-Commerce{" "}
-                    </Heading>
-                  </Box>
-                  <Box
-                    px={2}
-                    py={1}
-                    color={"white"}
-                    bg={"success.600"}
-                    borderRadius={200}
-                  >
-                    <Heading color={"white"} fontSize={"sm"}>
-                      Web
-                    </Heading>
-                  </Box>
-                  <Box
-                    px={2}
-                    py={1}
-                    color={"white"}
-                    bg={"success.600"}
-                    borderRadius={200}
-                  >
-                    <Heading color={"white"} fontSize={"sm"}>
-                      Tech
-                    </Heading>
-                  </Box>
-                </HStack>
-                <Heading fontSize={"sm"} mx={5} my={3}>
-                  Univest is a unique investments ecosystem solving the daily
-                  problems of 80 mn stock market investors & earning them higher
-                  returns; by letting users watch their friends' trades in real
-                  time, chat about investments, see AI based recommendations on
-                  portfolio & invest through any brokerage platform.
-                </Heading>
-                <HStack w="100%" justifyContent={"space-between"} px={5}>
-                  <Box>
-                    <VStack>
-                      <Heading>10%</Heading>
-                      <Heading fontSize={"sm"}>Raised So Far</Heading>
-                    </VStack>
-                  </Box>
-                  <Box>
-                    <VStack>
-                      <Heading>21 Days </Heading>
-                      <Heading fontSize={"sm"}>To Go for Funding</Heading>
-                    </VStack>
-                  </Box>
-                </HStack>
+                {renderImage()}
+                {renderBadges()}
+                {renderDesc()}
+                {renderFundingInfo()}
 
-                <Box px={5}>
-                  <Progress value={45} my="4" />
-                </Box>
+                {renderProgressBar()}
                 <Box px={5} mb={5}>
                   <Button>Invest Now</Button>
                 </Box>
@@ -275,6 +214,105 @@ const DetailsDeal = () => {
       </Box>
     </ScrollView>
   );
+
+  function renderProgressBar() {
+    return (
+      <Box px={5}>
+        <Progress value={45} my="4" />
+      </Box>
+    );
+  }
+
+  /**
+   *
+   * @returns Render Function info
+   */
+  function renderFundingInfo() {
+    return (
+      <HStack w="100%" justifyContent={"space-between"} px={5}>
+        <Box>
+          <VStack>
+            <Heading>10%</Heading>
+            <Heading fontSize={"sm"}>Raised So Far</Heading>
+          </VStack>
+        </Box>
+        <Box>
+          <VStack>
+            <Heading>21 Days </Heading>
+            <Heading fontSize={"sm"}>To Go for Funding</Heading>
+          </VStack>
+        </Box>
+      </HStack>
+    );
+  }
+
+  /**
+   *
+   * @returns Renders Desc
+   */
+  function renderDesc() {
+    return (
+      <Heading fontSize={"sm"} mx={5} my={3}>
+        Univest is a unique investments ecosystem solving the daily problems of
+        80 mn stock market investors & earning them higher returns; by letting
+        users watch their friends' trades in real time, chat about investments,
+        see AI based recommendations on portfolio & invest through any brokerage
+        platform.
+      </Heading>
+    );
+  }
+
+  function renderBadges() {
+    return (
+      <HStack m={3} space={5} mx={5}>
+        <Box px={2} py={1} bg={"success.600"} borderRadius={200}>
+          <Heading color={"white"} fontSize={"sm"}>
+            E-Commerce{" "}
+          </Heading>
+        </Box>
+        <Box
+          px={2}
+          py={1}
+          color={"white"}
+          bg={"success.600"}
+          borderRadius={200}
+        >
+          <Heading color={"white"} fontSize={"sm"}>
+            Web
+          </Heading>
+        </Box>
+        <Box
+          px={2}
+          py={1}
+          color={"white"}
+          bg={"success.600"}
+          borderRadius={200}
+        >
+          <Heading color={"white"} fontSize={"sm"}>
+            Tech
+          </Heading>
+        </Box>
+      </HStack>
+    );
+  }
+
+  function renderImage() {
+    return (
+      <HStack alignItems={"center"} m={3}>
+        <Image
+          alt="img"
+          shadow={3}
+          borderColor={"coolGray.200"}
+          borderWidth={1}
+          borderRadius={200}
+          h="70px"
+          w="70px"
+          src="https://www.tykeinvest.com/_next/image?url=https%3A%2F%2Ftyke-startup-bucket.s3.ap-south-1.amazonaws.com%2FUNIVEST%2520COMMUNICATION%2520TECHNOLOGIES%2520PRIVATE%2520LIMITED%2FTime%2520to%2520turn%2520Sharks%2520to%2520TagZ......%2520%252822%2529.png&w=828&q=75"
+        />
+        <Heading m={2}>UniVest</Heading>
+      </HStack>
+    );
+  }
 };
 
 export default DetailsDeal;
