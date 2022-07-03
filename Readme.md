@@ -20,11 +20,11 @@ Login Screen Dark
 
 
 SignUp Screen light
-![alt login-light](https://github.com/hasnentai/fintech-nativebase/blob/deals/screenshots/sign-light.png)
+![alt login-light](https://github.com/hasnentai/fintech-nativebase/blob/deals/screenshots/signup-light.png)
 
 
 SignUp Screen Dark
-![alt login-light](https://github.com/hasnentai/fintech-nativebase/blob/deals/screenshots/sign-dark.png)
+![alt login-light](https://github.com/hasnentai/fintech-nativebase/blob/deals/screenshots/signup-dark.png)
 
 
 Deals List Screen
