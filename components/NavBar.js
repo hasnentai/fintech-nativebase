@@ -1,4 +1,6 @@
 import React from 'react';
+import firebase from 'firebase/app';
+import 'firebase/auth';
 import {
   Box,
   Text,
@@ -13,11 +15,22 @@ import { NativeBaseHackButton } from './Buttons';
 //icons
 import { FontAwesome } from '@expo/vector-icons';
 import { Feather } from '@expo/vector-icons';
+import { Pressable } from 'react-native/';
 
 export function NavBar() {
   let { colorMode, toggleColorMode } = useColorMode();
-  console.log(colorMode);
+  const [isLoggedIn, setIsLoggedIn] = React.useState(false);
   let menuList = ['Home', 'About Us', 'Contact', 'Hire Me'];
+
+  firebase.auth().onAuthStateChanged((user) => {
+    if (user != null) {
+      console.log('##########################');
+      setIsLoggedIn(true);
+    } else {
+      setIsLoggedIn(false);
+    }
+  });
+
   return (
     <Box
       width={'100%'}
@@ -84,6 +97,19 @@ export function NavBar() {
           }
         />
         <Feather name="sun" size={20} color="#ffff" style={{ marginLeft: 5 }} />
+        {isLoggedIn && (
+          <Box marginLeft={10}>
+            <NativeBaseHackButton
+              onPress={() => {
+                firebase.auth().signOut();
+              }}
+              width={'100%'}
+              label={'Logout'}
+              mt="2"
+              colorScheme="indigo"
+            ></NativeBaseHackButton>
+          </Box>
+        )}
       </HStack>
     );
   }

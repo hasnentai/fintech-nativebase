@@ -7,7 +7,7 @@ import {
   useColorMode,
   VStack,
 } from 'native-base';
-import { TouchableOpacity } from 'react-native';
+import { TouchableOpacity, Pressable } from 'react-native';
 
 const Card = ({ data, navigation }) => {
   let { colorMode } = useColorMode();
@@ -19,7 +19,7 @@ const Card = ({ data, navigation }) => {
    */
   function renderCard(data) {
     return (
-      <TouchableOpacity onPress={() => navigation.push('DetailsDeal')}>
+      <Pressable onPress={() => navigation.push('DetailsDeal')}>
         <Box
           bg={colorMode === 'light' ? 'white' : 'coolGray.900'}
           w="100%"
@@ -29,6 +29,7 @@ const Card = ({ data, navigation }) => {
           borderWidth="1"
           borderColor={colorMode === 'light' ? 'coolGray.200' : 'coolGray.600'}
           mt="20"
+          flex={1}
         >
           {renderBannerImageOfCard(data.coverImage)}
           {AvatarList(data.coverImage, data.name)}
@@ -36,7 +37,7 @@ const Card = ({ data, navigation }) => {
           {cardFooter(data.perGained, data.launched, data.launchDays)}
           {createBadge(data.type)}
         </Box>
-      </TouchableOpacity>
+      </Pressable>
     );
   }
 
