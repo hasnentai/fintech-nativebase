@@ -66,6 +66,7 @@ Used nest js and fastify for backend to get and save the data  which is a TS bas
 
 ![alt login-light](https://github.com/hasnentai/fintech-nativebase/blob/main/screenshots/landing-dark-m.png) ![alt login-light](https://github.com/hasnentai/fintech-nativebase/blob/main/screenshots/landing-light-m.png)
 
+
 ### Deal List Screen
 
 ![alt login-light](https://github.com/hasnentai/fintech-nativebase/blob/main/screenshots/listing-dark-m.png) ![alt login-light](https://github.com/hasnentai/fintech-nativebase/blob/main/screenshots/listing-light-m.png)
@@ -73,3 +74,11 @@ Used nest js and fastify for backend to get and save the data  which is a TS bas
 ### Deal Details Screen
 
 ![alt login-light](https://github.com/hasnentai/fintech-nativebase/blob/main/screenshots/detail-dark-m.png) ![alt login-light](https://github.com/hasnentai/fintech-nativebase/blob/main/screenshots/detail-light-m.png)
+
+### Payment Screen
+
+![alt login-light](https://github.com/hasnentai/fintech-nativebase/blob/main/screenshots/payment-m.png)
+
+### Login
+
+![alt login-light](https://github.com/hasnentai/fintech-nativebase/blob/main/screenshots/login-dark-m.png)
