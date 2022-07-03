@@ -27,5 +27,9 @@ SignUp Screen Dark
 ![alt login-light](https://github.com/hasnentai/fintech-nativebase/blob/deals/screenshots/signup-dark.png)
 
 
-Deals List Screen
+Deals List Screen light
+![alt login-light](https://github.com/hasnentai/fintech-nativebase/blob/deals/screenshots/deals-light.png)
+
+
+Deals List Screen Dark
 ![alt login-light](https://github.com/hasnentai/fintech-nativebase/blob/deals/screenshots/deals-dark.png)
