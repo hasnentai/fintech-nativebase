@@ -18,9 +18,7 @@ Used nest js and fastify for backend to get and save the data  which is a TS bas
 | ![Expo](https://img.shields.io/badge/Expo-1B1F23?style=for-the-badge&logo=expo&logoColor=white) | Expo Cli for universal support |
 | ![NestJs](https://img.shields.io/badge/nestjs-E0234E?style=for-the-badge&logo=nestjs&logoColor=white) | Backend API |
 
-## Our App Supports (IOS & Android Builds)
-
-![alt login-light](https://github.com/hasnentai/fintech-nativebase/blob/main/screenshots/ios.png) ![alt login-light](https://github.com/hasnentai/fintech-nativebase/blob/main/screenshots/gp.png)
+## Our Projects Supports (Web,IOS & Android Builds)
 
 ## Web Screens
 
