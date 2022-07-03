@@ -12,6 +12,12 @@ This project is build using NativeBase.
 
 ## Screen
 
+Landing Screen Light
+![alt login-light](https://github.com/hasnentai/fintech-nativebase/blob/deals/screenshots/landing-light.png)
+
+Landing Screen Dark
+![alt login-light](https://github.com/hasnentai/fintech-nativebase/blob/deals/screenshots/landing-dark.png)
+
 Login Screen Light
 ![alt login-light](https://github.com/hasnentai/fintech-nativebase/blob/deals/screenshots/login-light.png)
 
