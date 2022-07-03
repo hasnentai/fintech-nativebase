@@ -21,12 +21,13 @@ import {
   Box,
 } from "native-base";
 
-import Deals from "./view/Deals";
+import Deals from "./components/Deals";
 import { NavBar } from "./components/NavBar";
 import Welcome from "./screens/Welcome";
 import { nativeBaseHackTheme } from "./theme/NativeBaseHackTheme";
 import DetailsDeal from "./components/DetailDeal";
 import LandingPage from "./components/Landing";
+import Footer from "./components/Footer";
 
 const Stack = createNativeStackNavigator();
 // Define the config

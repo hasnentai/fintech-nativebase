@@ -19,7 +19,6 @@ import AppBar from "./AppBar";
 import { NavBar } from "./NavBar";
 
 const DetailsDeal = () => {
-
   let { colorMode } = useColorMode();
   return (
     <ScrollView _contentContainerStyle={{}}>
@@ -40,31 +39,13 @@ const DetailsDeal = () => {
                 {renderFundingInfo()}
 
                 {renderProgressBar()}
-                <Box px={5} mb={5}>
-                  <Button>Invest Now</Button>
-                </Box>
+                {renderButton()}
               </VStack>
             </Box>
-            <Box
-              flex={1}
-              w="full"
-              p={3}
-              display={{ md: "block", base: "none" }}
-            >
-              <Image
-                alt="img"
-                shadow={3}
-                borderColor={"coolGray.200"}
-                borderWidth={1}
-                borderRadius={5}
-                h="full"
-                w="full"
-                src="https://www.tykeinvest.com/_next/image?url=https%3A%2F%2Ftyke-startup-bucket.s3.ap-south-1.amazonaws.com%2FUNIVEST%2520COMMUNICATION%2520TECHNOLOGIES%2520PRIVATE%2520LIMITED%2FTime%2520to%2520turn%2520Sharks%2520to%2520TagZ......%2520%252822%2529.png&w=828&q=75"
-              />
-            </Box>
+            {renderAvatarList()}
           </HStack>
           <Divider my={10} />
-          <Heading my={5}>Backed By</Heading>
+          {renderHeader()}
           <HStack space={5}>
             <Box
               borderWidth={1}
@@ -217,6 +198,35 @@ const DetailsDeal = () => {
       </Box>
     </ScrollView>
   );
+
+  function renderHeader() {
+    return <Heading my={5}>Backed By</Heading>;
+  }
+
+  function renderAvatarList() {
+    return (
+      <Box flex={1} w="full" p={3} display={{ md: "block", base: "none" }}>
+        <Image
+          alt="img"
+          shadow={3}
+          borderColor={"coolGray.200"}
+          borderWidth={1}
+          borderRadius={5}
+          h="full"
+          w="full"
+          src="https://www.tykeinvest.com/_next/image?url=https%3A%2F%2Ftyke-startup-bucket.s3.ap-south-1.amazonaws.com%2FUNIVEST%2520COMMUNICATION%2520TECHNOLOGIES%2520PRIVATE%2520LIMITED%2FTime%2520to%2520turn%2520Sharks%2520to%2520TagZ......%2520%252822%2529.png&w=828&q=75"
+        />
+      </Box>
+    );
+  }
+
+  function renderButton() {
+    return (
+      <Box px={5} mb={5}>
+        <Button>Invest Now</Button>
+      </Box>
+    );
+  }
 
   function renderProgressBar() {
     return (

@@ -10,6 +10,7 @@ import { Platform } from "react-native";
 import AppBar from "./AppBar";
 import { NativeBaseHackButton } from "./Buttons";
 import Card from "./Card";
+import Footer from "./Footer";
 import { NavBar } from "./NavBar";
 
 const LandingPage = () => {
@@ -51,6 +52,7 @@ const LandingPage = () => {
               </Box>
             </Box>
           </Container>
+          <Footer />
         </Center>
       </ScrollView>
     </Box>

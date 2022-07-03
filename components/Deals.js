@@ -15,25 +15,26 @@ import {
   Icon,
   ScrollView,
 } from "native-base";
-import { NativeBaseHackButtonGroup } from "../components/Buttons";
-import Card from "../components/Card";
-import NativeBaseHackSelect from "../components/DropDown";
+import { NativeBaseHackButtonGroup } from "./Buttons";
+import Card from "./Card";
+import NativeBaseHackSelect from "./DropDown";
 import { Ionicons, FontAwesome } from "@expo/vector-icons";
-import { NavBar } from "../components/NavBar";
+import { NavBar } from "./NavBar";
 import { SafeAreaView } from "react-native-safe-area-context";
-import AppBar from "../components/AppBar";
+import AppBar from "./AppBar";
 import { Platform } from "react-native";
 import { useEffect, useState } from "react";
 import { getAllCards } from "../api/getCardsInfo";
+import Footer from "./Footer";
 const Deals = () => {
   let { colorMode } = useColorMode();
   let card = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-  const [cards,setCards] = useState([])
+  const [cards, setCards] = useState([]);
 
-  useEffect(async ()=>{
-    let x= await getAllCards();
-    console.log(x)
-  },[])
+  useEffect(async () => {
+    let x = await getAllCards();
+    console.log(x);
+  }, []);
   console.log(colorMode);
   return (
     <Box
@@ -109,6 +110,7 @@ const Deals = () => {
             </Box>
           </Container>
         </Box>
+        <Footer />
       </ScrollView>
     </Box>
   );
