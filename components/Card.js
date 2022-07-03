@@ -6,8 +6,8 @@ import {
   Text,
   useColorMode,
   VStack,
-} from 'native-base';
-import { TouchableOpacity } from 'react-native';
+} from "native-base";
+import { TouchableOpacity, Pressable } from "react-native";
 
 const Card = ({ data, navigation }) => {
   let { colorMode } = useColorMode();
@@ -19,16 +19,17 @@ const Card = ({ data, navigation }) => {
    */
   function renderCard(data) {
     return (
-      <TouchableOpacity onPress={() => navigation.push('DetailsDeal')}>
+      <Pressable onPress={() => navigation.push("DetailsDeal")}>
         <Box
-          bg={colorMode === 'light' ? 'white' : 'coolGray.900'}
+          bg={colorMode === "light" ? "white" : "coolGray.900"}
           w="100%"
           maxW={400}
           shadow={2}
           borderRadius={5}
           borderWidth="1"
-          borderColor={colorMode === 'light' ? 'coolGray.200' : 'coolGray.600'}
+          borderColor={colorMode === "light" ? "coolGray.200" : "coolGray.600"}
           mt="20"
+          flex={1}
         >
           {renderBannerImageOfCard(data.coverImage)}
           {AvatarList(data.coverImage, data.name)}
@@ -36,7 +37,7 @@ const Card = ({ data, navigation }) => {
           {cardFooter(data.perGained, data.launched, data.launchDays)}
           {createBadge(data.type)}
         </Box>
-      </TouchableOpacity>
+      </Pressable>
     );
   }
 
@@ -50,10 +51,10 @@ const Card = ({ data, navigation }) => {
       <Image
         alt="img"
         borderTopRadius={5}
-        h={'250px'}
-        w={'100%'}
+        h={"250px"}
+        w={"100%"}
         borderBottomWidth={1}
-        borderColor={'coolGray.200'}
+        borderColor={"coolGray.200"}
         src={logo}
       />
     );
@@ -69,9 +70,13 @@ const Card = ({ data, navigation }) => {
       <HStack m={3} space={1}>
         {types.map((ele, i) => {
           return (
-            <Box px={2} py={1} bg={'success.600'} borderRadius={200} key={i}>
-              <Heading color={'white'} fontSize={'sm'}>
-                {ele}{' '}
+            <Box px={2} py={1} bg={"success.600"} borderRadius={200} key={i}>
+              <Heading
+                color={"white"}
+                fontSize={"sm"}
+                textTransform={"capitalize"}
+              >
+                {ele}{" "}
               </Heading>
             </Box>
           );
@@ -89,35 +94,35 @@ const Card = ({ data, navigation }) => {
       <HStack m={3}>
         <Box flex={1}>
           {(launched == 1 || launched == -1) && (
-            <VStack justifyContent={'center'} alignItems="center">
-              <Heading fontSize={'sm'}>Total Raised </Heading>
-              <Heading fontSize={'lg'}>{gained + '%'}</Heading>
+            <VStack justifyContent={"center"} alignItems="center">
+              <Heading fontSize={"sm"}>Total Raised </Heading>
+              <Heading fontSize={"lg"}>{gained + "%"}</Heading>
             </VStack>
           )}
           {launched == 0 && (
-            <VStack justifyContent={'center'} alignItems="center">
-              <Heading fontSize={'sm'}>Not Yet Launched </Heading>
+            <VStack justifyContent={"center"} alignItems="center">
+              <Heading fontSize={"sm"}>Not Yet Launched </Heading>
               {/* <Heading fontSize={"lg"}>{gained + "%"}</Heading> */}
             </VStack>
           )}
         </Box>
         <Box flex={1}>
           {launched == 0 && (
-            <VStack justifyContent={'center'} alignItems="center">
-              <Heading fontSize={'sm'}>Starts In</Heading>
-              <Heading fontSize={'lg'}>{days}</Heading>
+            <VStack justifyContent={"center"} alignItems="center">
+              <Heading fontSize={"sm"}>Starts In</Heading>
+              <Heading fontSize={"lg"}>{days}</Heading>
             </VStack>
           )}
           {launched == 1 && (
-            <VStack justifyContent={'center'} alignItems="center">
-              <Heading fontSize={'sm'}>Ends In</Heading>
-              <Heading fontSize={'lg'}>{days}</Heading>
+            <VStack justifyContent={"center"} alignItems="center">
+              <Heading fontSize={"sm"}>Ends In</Heading>
+              <Heading fontSize={"lg"}>{days}</Heading>
             </VStack>
           )}
           {launched == -1 && (
-            <VStack justifyContent={'center'} alignItems="center">
-              <Heading fontSize={'sm'}>Ended </Heading>
-              <Heading fontSize={'lg'}>{days}</Heading>
+            <VStack justifyContent={"center"} alignItems="center">
+              <Heading fontSize={"sm"}>Ended </Heading>
+              <Heading fontSize={"lg"}>{days}</Heading>
             </VStack>
           )}
         </Box>
@@ -140,14 +145,14 @@ const Card = ({ data, navigation }) => {
    */
   function AvatarList(logo, name) {
     return (
-      <HStack alignItems={'center'} m={3}>
+      <HStack alignItems={"center"} m={3}>
         <Image
           alt="img"
-          borderTopRadius={5}
+          borderRadius={50}
           borderBottomWidth={1}
-          borderColor={'coolGray.200'}
-          h={'70'}
-          w={'70'}
+          borderColor={"coolGray.200"}
+          h={"70"}
+          w={"70"}
           src={logo}
         />
         <Heading m={2}>{name}</Heading>
