@@ -33,3 +33,11 @@ Deals List Screen light
 
 Deals List Screen Dark
 ![alt login-light](https://github.com/hasnentai/fintech-nativebase/blob/deals/screenshots/deals-dark.png)
+
+
+Deals Details List Screen light
+![alt login-light](https://github.com/hasnentai/fintech-nativebase/blob/deals/screenshots/detail-light.png)
+
+
+Deals Details List Screen Dark
+![alt login-light](https://github.com/hasnentai/fintech-nativebase/blob/deals/screenshots/detail-dark.png)
