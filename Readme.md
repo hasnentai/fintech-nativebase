@@ -2,6 +2,13 @@
 
 This project is build using NativeBase.
 
+The idea behind the project is to create a platform in which small startups can raise the funding and user who want to invest in startups 
+can invest in those startups. This will benifit those startups who has difficulty raising the investments and the users who wants to invest 
+in startups.
+
+We use react-native expo with native-base ui library to create the frontend part and also use firebase for authentication part.
+Used nest js and fastify for backend to get and save the data  which is a TS based node js framework.
+
 ## Tech Stack
 | Libs | Desc |
 | ------ | ------ |
