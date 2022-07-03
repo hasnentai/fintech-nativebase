@@ -12,4 +12,11 @@ This project is build using NativeBase.
 
 ## Screen
 
+Login Screen Light
+![alt login-light](https://github.com/hasnentai/fintech-nativebase/blob/deals/screenshots/login-light.png)
+
+Login Screen Dark
+![alt login-light](https://github.com/hasnentai/fintech-nativebase/blob/deals/screenshots/login-dark.png)
+
+Deals List Screen
 ![alt login-light](https://github.com/hasnentai/fintech-nativebase/blob/deals/screenshots/deals-dark.png)
