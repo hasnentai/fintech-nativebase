@@ -1,31 +1,8 @@
 import * as React from 'react';
-import {
-  Box,
-  Text,
-  Heading,
-  VStack,
-  FormControl,
-  Input,
-  Link,
-  Button,
-  HStack,
-  Center,
-  Icon,
-  NativeBaseProvider,
-  Divider,
-  Spinner,
-  useColorMode,
-} from 'native-base';
-import { AntDesign } from '@expo/vector-icons';
-import { NativeBaseHackButton } from '../components/Buttons';
+import { Center, Spinner, useColorMode } from 'native-base';
 
-const Welcome = ({ navigation }) => {
+const Welcome = ({}) => {
   let { colorMode } = useColorMode();
-  const [formState, setFormState] = React.useState({
-    Email: '',
-    password: '',
-    error: null,
-  });
 
   return (
     <Center

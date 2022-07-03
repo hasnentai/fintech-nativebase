@@ -1,4 +1,9 @@
 import * as React from 'react';
+
+//firebase
+import firebase from 'firebase/app';
+import 'firebase/auth';
+
 import {
   Box,
   Text,
@@ -11,18 +16,18 @@ import {
   HStack,
   Center,
   Icon,
-  NativeBaseProvider,
   Divider,
   useColorMode,
-  Spinner,
 } from 'native-base';
-import { AntDesign } from '@expo/vector-icons';
-import { NativeBaseHackButton } from '../components/Buttons';
-import firebase from 'firebase/app';
-import 'firebase/auth';
 import { Platform } from 'react-native';
+
+//components
 import AppBar from '../components/AppBar';
 import { NavBar } from '../components/NavBar';
+import { NativeBaseHackButton } from '../components/Buttons';
+
+//icons
+import { AntDesign } from '@expo/vector-icons';
 
 const Login = ({ navigation }) => {
   let { colorMode } = useColorMode();
@@ -33,6 +38,7 @@ const Login = ({ navigation }) => {
   });
   const [loading, setLoading] = React.useState(false);
 
+  // function for login with firebase
   const LoginFunction = () => {
     if (formState.Email && formState.password) {
       setLoading(true);
@@ -55,7 +61,6 @@ const Login = ({ navigation }) => {
       alert('Please enter email and passwrd!');
     }
   };
-  console.log(formState);
   return (
     <>
       {Platform.OS === 'web' ? <NavBar /> : <AppBar />}

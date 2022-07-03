@@ -1,7 +1,8 @@
+import * as React from 'react';
+
+//firebase
 import firebase from 'firebase/app';
 import 'firebase/auth';
-
-import * as React from 'react';
 import {
   Box,
   Text,
@@ -14,15 +15,19 @@ import {
   HStack,
   Center,
   Icon,
-  NativeBaseProvider,
   Divider,
   useColorMode,
 } from 'native-base';
-import { AntDesign } from '@expo/vector-icons';
-import { NativeBaseHackButton } from '../components/Buttons';
+
 import { Platform } from 'react-native';
+
+//components
 import AppBar from '../components/AppBar';
 import { NavBar } from '../components/NavBar';
+import { NativeBaseHackButton } from '../components/Buttons';
+
+//icons
+import { AntDesign } from '@expo/vector-icons';
 
 const SignUp = ({ navigation }) => {
   let { colorMode } = useColorMode();

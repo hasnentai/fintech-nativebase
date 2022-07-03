@@ -1,33 +1,20 @@
 import React, { useState } from 'react';
-import { View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import LoginScreen from './screens/Login';
-import HomeScreen from './screens/Home';
-import SignUpScreen from './screens/SignUp';
 import firebase from 'firebase/app';
 import 'firebase/auth';
-import {
-  Text,
-  Link,
-  HStack,
-  Center,
-  Heading,
-  Switch,
-  useColorMode,
-  NativeBaseProvider,
-  extendTheme,
-  VStack,
-  Box,
-} from 'native-base';
-
-import Deals from './components/Deals';
-import { NavBar } from './components/NavBar';
-import Welcome from './screens/Welcome';
+import { NativeBaseProvider } from 'native-base';
 import { nativeBaseHackTheme } from './theme/NativeBaseHackTheme';
+
+//components
 import DetailsDeal from './components/DetailDeal';
 import LandingPage from './components/Landing';
-import Footer from './components/Footer';
+import Deals from './components/Deals';
+
+//screens
+import LoginScreen from './screens/Login';
+import SignUpScreen from './screens/SignUp';
+import Welcome from './screens/Welcome';
 
 const Stack = createNativeStackNavigator();
 // Define the config
@@ -39,6 +26,7 @@ const config = {
 // extend the theme
 
 function App() {
+  //states
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [loading, setLoading] = useState(true);
 

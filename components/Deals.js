@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import {
   Box,
   Center,
@@ -6,26 +7,24 @@ import {
   VStack,
   useColorMode,
   HStack,
-  Stack,
   InputGroup,
   InputRightAddon,
-  InputLeftAddon,
   Input,
-  Flex,
   Icon,
   ScrollView,
 } from 'native-base';
 import { NativeBaseHackButtonGroup } from './Buttons';
 import Card from './Card';
 import NativeBaseHackSelect from './DropDown';
-import { Ionicons, FontAwesome } from '@expo/vector-icons';
-import { NavBar } from './NavBar';
-import { SafeAreaView } from 'react-native-safe-area-context';
-import AppBar from './AppBar';
+import { Ionicons } from '@expo/vector-icons';
+
 import { Platform } from 'react-native';
-import { useEffect, useState } from 'react';
-import { getAllCards } from '../api/getCardsInfo';
+
+//components
 import Footer from './Footer';
+import { getAllCards } from '../api/getCardsInfo';
+import { NavBar } from './NavBar';
+import AppBar from './AppBar';
 
 const Deals = ({ navigation }) => {
   let { colorMode } = useColorMode();
