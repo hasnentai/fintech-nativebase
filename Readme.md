@@ -62,4 +62,6 @@ Used nest js and fastify for backend to get and save the data  which is a TS bas
 
 ## Mobile Screens
 
-### 
+### Landing Screen
+
+![alt login-light](https://github.com/hasnentai/fintech-nativebase/blob/main/screenshots/landing-dark-m.png) ![alt login-light](https://github.com/hasnentai/fintech-nativebase/blob/main/screenshots/landing-light-m.png)
