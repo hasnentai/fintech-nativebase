@@ -13,7 +13,7 @@ import Card from "./Card";
 import Footer from "./Footer";
 import { NavBar } from "./NavBar";
 
-const LandingPage = () => {
+const LandingPage = ({ navigation }) => {
   let { colorMode } = useColorMode();
   return (
     <Box
@@ -24,18 +24,26 @@ const LandingPage = () => {
       {Platform.OS === "web" ? <NavBar /> : <AppBar />}
       <ScrollView _contentContainerStyle={{}}>
         <Center>
-          <Container width="100%">
-            <Box flexDir={"row"} minH={"800"} width={"100%"}>
-              <Box flex={1} justifyContent="center">
+          <Container width={"100%"}>
+            <Box
+              flexDir={{ md: "row", base: "column" }}
+              minH={"800"}
+              width={"100%"}
+            >
+              <Box
+                flex={1}
+                justifyContent={{ md: "center" }}
+                marginTop={{ base: 10 }}
+              >
                 <Heading
-                  fontSize={"7xl"}
+                  fontSize={"6xl"}
                   justifyContent={"center"}
                   color={"white"}
                   fontWeight={"light"}
                 >
                   Super Charge Your Investing Skills
                 </Heading>
-                <Heading fontSize={"lg"} color={"white"} fontWeight="bolder">
+                <Heading fontSize={"lg"} color={"white"}>
                   Invest on our platform for leading company and projects.Buy
                   Stocks and invest now and get high returns
                 </Heading>
@@ -44,12 +52,17 @@ const LandingPage = () => {
                   justifyContent={"flex-start"}
                   alignItems="flex-start"
                 >
-                  <NativeBaseHackButton label={"Start Investing Now"} />
+                  <NativeBaseHackButton
+                    onPress={() => navigation.push("Login")}
+                    label={"Start Investing Now"}
+                  />
                 </Box>
               </Box>
-              <Box flex={1} alignItems="center">
-                <Card />
-              </Box>
+              {Platform.OS === "web" ? (
+                <Box flex={1} alignItems="center">
+                  <Card />
+                </Box>
+              ) : null}
             </Box>
           </Container>
           <Footer />

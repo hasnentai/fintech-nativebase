@@ -73,7 +73,7 @@ function App() {
   return (
     <NativeBaseProvider theme={nativeBaseHackTheme}>
       <NavigationContainer>
-        {false ? (
+        {loading ? (
           <Stack.Navigator>
             <Stack.Screen
               name="loading"
@@ -81,16 +81,26 @@ function App() {
               options={{ headerShown: false }}
             />
           </Stack.Navigator>
-        ) : true ? (
+        ) : isLoggedIn ? (
           <Stack.Navigator>
             <Stack.Screen
               name="Home"
               component={Deals}
               options={{ headerShown: false }}
             />
+            <Stack.Screen
+              name="DetailsDeal"
+              component={DetailsDeal}
+              options={{ headerShown: false }}
+            />
           </Stack.Navigator>
         ) : (
           <Stack.Navigator>
+            <Stack.Screen
+              name="Landing"
+              component={LandingPage}
+              options={{ headerShown: false }}
+            />
             <Stack.Screen
               name="Login"
               component={LoginScreen}

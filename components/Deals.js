@@ -100,7 +100,7 @@ const Deals = () => {
                         flexWrap={"wrap"}
                       >
                         {card.map((i, v) => {
-                          return <Card />;
+                          return <Card navigation={navigation} />;
                         })}
                       </HStack>
                     </Box>
