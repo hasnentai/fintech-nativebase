@@ -13,40 +13,40 @@ This project is build using NativeBase.
 ## Screen
 
 Landing Screen Light
-![alt login-light](https://github.com/hasnentai/fintech-nativebase/blob/deals/screenshots/landing-light.png)
+![alt login-light](https://github.com/hasnentai/fintech-nativebase/blob/main/screenshots/landing-light.png)
 
 Landing Screen Dark
-![alt login-light](https://github.com/hasnentai/fintech-nativebase/blob/deals/screenshots/landing-dark.png)
+![alt login-light](https://github.com/hasnentai/fintech-nativebase/blob/main/screenshots/landing-dark.png)
 
 Login Screen Light
-![alt login-light](https://github.com/hasnentai/fintech-nativebase/blob/deals/screenshots/login-light.png)
+![alt login-light](https://github.com/hasnentai/fintech-nativebase/blob/main/screenshots/login-light.png)
 
 Login Screen Dark
-![alt login-light](https://github.com/hasnentai/fintech-nativebase/blob/deals/screenshots/login-dark.png)
+![alt login-light](https://github.com/hasnentai/fintech-nativebase/blob/main/screenshots/login-dark.png)
 
 
 SignUp Screen light
-![alt login-light](https://github.com/hasnentai/fintech-nativebase/blob/deals/screenshots/signup-light.png)
+![alt login-light](https://github.com/hasnentai/fintech-nativebase/blob/main/screenshots/signup-light.png)
 
 
 SignUp Screen Dark
-![alt login-light](https://github.com/hasnentai/fintech-nativebase/blob/deals/screenshots/signup-dark.png)
+![alt login-light](https://github.com/hasnentai/fintech-nativebase/blob/main/screenshots/signup-dark.png)
 
 
-Deals List Screen light
-![alt login-light](https://github.com/hasnentai/fintech-nativebase/blob/deals/screenshots/deals-light.png)
+main List Screen light
+![alt login-light](https://github.com/hasnentai/fintech-nativebase/blob/main/screenshots/deals-light.png)
 
 
 Deals List Screen Dark
-![alt login-light](https://github.com/hasnentai/fintech-nativebase/blob/deals/screenshots/deals-dark.png)
+![alt login-light](https://github.com/hasnentai/fintech-nativebase/blob/main/screenshots/deals-dark.png)
 
 
 Deals Details List Screen light
-![alt login-light](https://github.com/hasnentai/fintech-nativebase/blob/deals/screenshots/detail-light.png)
+![alt login-light](https://github.com/hasnentai/fintech-nativebase/blob/main/screenshots/detail-light.png)
 
 
 Deals Details List Screen Dark
-![alt login-light](https://github.com/hasnentai/fintech-nativebase/blob/deals/screenshots/detail-dark.png)
+![alt login-light](https://github.com/hasnentai/fintech-nativebase/blob/main/screenshots/detail-dark.png)
 
 Login Screen mobile
-![alt login-light](https://github.com/hasnentai/fintech-nativebase/blob/deals/screenshots/login-light.png)
+![alt login-light](https://github.com/hasnentai/fintech-nativebase/blob/main/screenshots/login-light.png)
