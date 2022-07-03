@@ -68,4 +68,4 @@ Used nest js and fastify for backend to get and save the data  which is a TS bas
 
 ### Deal List Screen
 
-![alt login-light](https://github.com/hasnentai/fintech-nativebase/blob/main/screenshots/listing-dark-m.png) ![alt login-light](https://github.com/hasnentai/fintech-nativebase/blob/main/screenshots/landing-listing-m.png)
+![alt login-light](https://github.com/hasnentai/fintech-nativebase/blob/main/screenshots/listing-dark-m.png) ![alt login-light](https://github.com/hasnentai/fintech-nativebase/blob/main/screenshots/listing-light-m.png)
