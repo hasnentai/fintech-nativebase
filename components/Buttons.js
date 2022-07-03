@@ -54,7 +54,7 @@ const NativeBaseHackButtonGroup = ({ label }) => {
       }}
       size="lg"
     >
-      <ButtonRow />
+      <ButtonRow label ={label}/>
     </Button.Group>
   );
 };
@@ -65,7 +65,7 @@ export { NativeBaseHackButton, NativeBaseHackButtonGroup };
  * @param {*} param0
  * @returns Creates Three Button in a row
  */
-function ButtonRow({}) {
+function ButtonRow({label}) {
   return (
     <>
       <Button minW={"100"} variant={"outline"}>

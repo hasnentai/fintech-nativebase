@@ -9,7 +9,7 @@ export const getAllCards = async () => {
     let data = await axios.get(
       "https://hack-withnative.herokuapp.com/company/all"
     );
-    return data;
+    return data.data;
   } catch (err) {
     console.log(err);
     return {

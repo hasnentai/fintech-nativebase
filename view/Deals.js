@@ -27,14 +27,20 @@ import { useEffect, useState } from "react";
 import { getAllCards } from "../api/getCardsInfo";
 const Deals = () => {
   let { colorMode } = useColorMode();
-  let card = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  
   const [cards,setCards] = useState([])
 
   useEffect(async ()=>{
     let x= await getAllCards();
-    console.log(x)
+    
+    if(x.status === 'success'){
+      setCards(x.data);
+    }
+    else{
+      alert(x.message)
+    }
   },[])
-  console.log(colorMode);
+  
   return (
     <Box
       // safeAreaTop
@@ -98,8 +104,8 @@ const Deals = () => {
                         justifyContent="space-between"
                         flexWrap={"wrap"}
                       >
-                        {card.map((i, v) => {
-                          return <Card />;
+                        {cards.map((e, i) => {
+                          return <Card key ={i} data = {e}/>;
                         })}
                       </HStack>
                     </Box>
