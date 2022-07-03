@@ -11,9 +11,14 @@ import {
   Box,
   StatusBar,
   useColorMode,
+  Switch,
 } from 'native-base';
 import { MaterialIcons } from '@expo/vector-icons';
 import { NativeBaseHackButton } from './Buttons';
+
+//icons
+import { FontAwesome } from '@expo/vector-icons';
+import { Feather } from '@expo/vector-icons';
 
 function AppBar() {
   let { colorMode, toggleColorMode } = useColorMode();
@@ -35,15 +40,31 @@ function AppBar() {
           borderBottomColor={colorMode === 'light' ? 'gray.300' : 'gray.700'}
         >
           <HStack alignItems="center">
-            <Text color="white" fontSize="20" fontWeight="bold">
-              Logo of the app
+            <Text color={'white'} fontSize="3xl" fontWeight="bold">
+              Investify
             </Text>
           </HStack>
-          <HStack>
-            <NativeBaseHackButton
-              label="Theme"
-              onPress={toggleColorMode}
-              bg={colorMode === 'light' ? 'primary.700' : 'primary.600'}
+          <HStack alignItems={'center'}>
+            <FontAwesome
+              name="moon-o"
+              size={15}
+              color="#ffff"
+              style={{ marginRight: 5 }}
+            />
+            <Switch
+              isChecked={colorMode === 'light'}
+              onToggle={toggleColorMode}
+              aria-label={
+                colorMode === 'light'
+                  ? 'switch to dark mode'
+                  : 'switch to light mode'
+              }
+            />
+            <Feather
+              name="sun"
+              size={15}
+              color="#ffff"
+              style={{ marginLeft: 5 }}
             />
           </HStack>
         </HStack>

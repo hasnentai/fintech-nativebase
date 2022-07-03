@@ -26,8 +26,9 @@ import { NavBar } from './components/NavBar';
 import Welcome from './screens/Welcome';
 import { nativeBaseHackTheme } from './theme/NativeBaseHackTheme';
 import DetailsDeal from './components/DetailDeal';
-import StripeApp from './screens/Payment';
-import { StripeProvider } from '@stripe/stripe-react-native';
+// import StripeApp from './screens/Payment';
+// import { StripeProvider } from '@stripe/stripe-react-native';
+import LandingPage from './components/Landing';
 
 const Stack = createNativeStackNavigator();
 // Define the config
@@ -71,47 +72,50 @@ function App() {
   console.log(loading);
 
   return (
-    <StripeProvider publishableKey="pk_test_51LHELHSBtK8y1o3ZLcorfwOW5aiorXgHRNnoW9G0dRHuLkcTpxwE44zbgFoooEKS8BmS1VVywb0jayt1ZERw5e1100UFnVsY2p">
-      <NativeBaseProvider theme={nativeBaseHackTheme}>
-        <NavigationContainer>
-          {false ? (
-            <Stack.Navigator>
-              <Stack.Screen
-                name="loading"
-                component={Welcome}
-                options={{ headerShown: false }}
-              />
-            </Stack.Navigator>
-          ) : true ? (
-            <Stack.Navigator>
-              <Stack.Screen
-                name="Home"
-                component={StripeApp}
-                options={{ headerShown: false }}
-              />
-              <Stack.Screen
-                name="DetailsDeal"
-                component={DetailsDeal}
-                options={{ headerShown: false }}
-              />
-            </Stack.Navigator>
-          ) : (
-            <Stack.Navigator>
-              <Stack.Screen
-                name="Login"
-                component={LoginScreen}
-                options={{ headerShown: false }}
-              />
-              <Stack.Screen
-                name="Sign Up"
-                component={SignUpScreen}
-                options={{ headerShown: false }}
-              />
-            </Stack.Navigator>
-          )}
-        </NavigationContainer>
-      </NativeBaseProvider>
-    </StripeProvider>
+    <NativeBaseProvider theme={nativeBaseHackTheme}>
+      <NavigationContainer>
+        {loading ? (
+          <Stack.Navigator>
+            <Stack.Screen
+              name="loading"
+              component={Welcome}
+              options={{ headerShown: false }}
+            />
+          </Stack.Navigator>
+        ) : isLoggedIn ? (
+          <Stack.Navigator>
+            <Stack.Screen
+              name="Home"
+              component={Deals}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="DetailsDeal"
+              component={DetailsDeal}
+              options={{ headerShown: false }}
+            />
+          </Stack.Navigator>
+        ) : (
+          <Stack.Navigator>
+            <Stack.Screen
+              name="Landing"
+              component={LandingPage}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="Login"
+              component={LoginScreen}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="Sign Up"
+              component={SignUpScreen}
+              options={{ headerShown: false }}
+            />
+          </Stack.Navigator>
+        )}
+      </NavigationContainer>
+    </NativeBaseProvider>
   );
 }
 
