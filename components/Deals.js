@@ -26,9 +26,9 @@ import { Platform } from "react-native";
 import { useEffect, useState } from "react";
 import { getAllCards } from "../api/getCardsInfo";
 import Footer from "./Footer";
-const Deals = () => {
+const Deals = ({ navigation }) => {
   let { colorMode } = useColorMode();
-
+  let card = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
   const [cards, setCards] = useState([]);
 
   useEffect(async () => {
@@ -58,12 +58,14 @@ const Deals = () => {
         >
           <Container minW={"95%"} justifyContent="center">
             <Box>
-              <VStack marginTop={10}>
-                <Heading>Grab Live Deals</Heading>
-                <Heading fontSize={"sm"}>
-                  Invest into leading projects and get a great returns
-                </Heading>
-              </VStack>
+              <Box marginLeft={{ md: 130, base: 0 }}>
+                <VStack marginTop={10}>
+                  <Heading>Grab Live Deals</Heading>
+                  <Heading fontSize={"sm"}>
+                    Invest into leading projects and get a great returns
+                  </Heading>
+                </VStack>
+              </Box>
 
               <Box w={"100%"}>
                 <HStack
@@ -75,14 +77,17 @@ const Deals = () => {
                   <Box flex={2}>
                     <Box w={"100%"} alignItems={"center"}>
                       <HStack
-                        width={{ md: "65%" }}
+                        width={{ md: "80%" }}
                         flexDir={"row"}
                         justifyContent="flex-start"
                         py={10}
                       >
                         <Box flex={2}>
                           <InputGroup w={"100%"}>
-                            <Input w={"80%"} placeholder="Search for Deals" />
+                            <Input
+                              w={{ md: "95%", base: "80%" }}
+                              placeholder="Search for Deals"
+                            />
                             <InputRightAddon
                               children={
                                 <Icon as={Ionicons} name="search" size={5} />

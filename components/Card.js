@@ -9,7 +9,7 @@ import {
 } from "native-base";
 import { TouchableOpacity } from "react-native";
 
-const Card = ({ data }) => {
+const Card = ({ data, navigation }) => {
   let { colorMode } = useColorMode();
   return renderCard(data);
 
@@ -19,22 +19,24 @@ const Card = ({ data }) => {
    */
   function renderCard(data) {
     return (
-      <Box
-        bg={colorMode === "light" ? "white" : "coolGray.900"}
-        w="100%"
-        maxW={400}
-        shadow={2}
-        borderRadius={5}
-        borderWidth="1"
-        borderColor={colorMode === "light" ? "coolGray.200" : "coolGray.600"}
-        mt="20"
-      >
-        {renderBannerImageOfCard(data.coverImage)}
-        {AvatarList(data.coverImage, data.name)}
-        {renderDescription(data.desc)}
-        {cardFooter(data.perGained, data.launched, data.launchDays)}
-        {createBadge(data.type)}
-      </Box>
+      <TouchableOpacity onPress={() => navigation.push("DetailsDeals")}>
+        <Box
+          bg={colorMode === "light" ? "white" : "coolGray.900"}
+          w="100%"
+          maxW={400}
+          shadow={2}
+          borderRadius={5}
+          borderWidth="1"
+          borderColor={colorMode === "light" ? "coolGray.200" : "coolGray.600"}
+          mt="20"
+        >
+          {renderBannerImageOfCard(data.coverImage)}
+          {AvatarList(data.coverImage, data.name)}
+          {renderDescription(data.desc)}
+          {cardFooter(data.perGained, data.launched, data.launchDays)}
+          {createBadge(data.type)}
+        </Box>
+      </TouchableOpacity>
     );
   }
 

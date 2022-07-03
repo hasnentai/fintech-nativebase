@@ -1,18 +1,17 @@
-import { Select, Box, Center, CheckIcon } from "native-base";
-import React from "react";
+import { Select, Box, Center, CheckIcon } from 'native-base';
+import React from 'react';
 
 const NativeBaseHackSelect = ({ selectedValue, listItems, onValueChange }) => {
-  let [service, setService] = React.useState("");
+  let [service, setService] = React.useState('');
   return (
     <Center>
-      <Box w={"90%"}>
+      <Box w={'90%'}>
         <Select
           selectedValue={service}
-          p="10px"
           accessibilityLabel="Choose Service"
           placeholder="Choose Service"
           _selectedItem={{
-            bg: "teal.600",
+            bg: 'teal.600',
             endIcon: <CheckIcon size="8" />,
           }}
           onValueChange={(itemValue) => setService(itemValue)}
