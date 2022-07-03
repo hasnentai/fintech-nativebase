@@ -291,28 +291,26 @@ const DetailsDeal = ({ navigation }) => {
       </Box>
       {/* modal */}
       <Modal isOpen={modalVisible} onClose={setModalVisible} size={'xl'}>
-        <Modal.Content maxH="212">
+        <Modal.Content>
           <Modal.CloseButton />
           <Modal.Header>Invest Now in UniVest</Modal.Header>
-          <Modal.Body height={400}>
-            <ScrollView>
-              <Image
-                alt="img"
-                borderTopRadius={5}
-                h={'200px'}
-                w={'100%'}
-                borderBottomWidth={1}
-                borderColor={'coolGray.200'}
-                src="https://www.shareicon.net/data/2017/05/11/885935_visa_512x512.png"
-              />
+          <Modal.Body>
+            <Image
+              alt="img"
+              borderTopRadius={5}
+              h={'200px'}
+              w={'100%'}
+              borderBottomWidth={1}
+              borderColor={'coolGray.200'}
+              src="https://www.shareicon.net/data/2017/05/11/885935_visa_512x512.png"
+            />
 
-              <Input
-                marginTop={3}
-                width={'100%'}
-                type={'number'}
-                placeholder="Number"
-              ></Input>
-            </ScrollView>
+            <Input
+              marginTop={3}
+              width={'100%'}
+              type={'number'}
+              placeholder="Number"
+            ></Input>
           </Modal.Body>
           <Modal.Footer>
             <Button.Group space={2}>
