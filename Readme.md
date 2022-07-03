@@ -12,3 +12,4 @@ This project is build using NativeBase.
 
 ## Screen
 
+![alt login-light](https://github.com/hasnentai/fintech-nativebase/blob/deals/screenshots/deals-dark.png)
